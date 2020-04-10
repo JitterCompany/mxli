@@ -1,0 +1,53 @@
+Generator for both GNU assembler and C-header constant and register definitions.
+
+sfr
+sfrb
+sfrh
+const
+asm
+
+struct PIO {
+	PER	# comment
+	PDR	# comment
+	PSR	# comment
+	dummy
+
+	OER [=<offset>]	[#comment]
+	ODR
+	OSR
+	dummy
+}
+
+struct PIO PIOA = <base-addr>;
+
+
+==>
+struct PIO {
+	volatile unsigned long PER;	///< comment
+	volatile unsigned long PDR;
+	volatile unsigned long PSR;
+
+	const unsigned long dummy1;
+	const unsigned long fill1[n];
+
+	volatile unsigned long OER;
+};
+
+Ausgabe "C":
+-------------
+#define PIOA (*(PIO*)<base-addr>)
+
+oder
+
+extern struct PIO PIOA;	// + linker-script-symbole oder assembler-modul mit Konstanten
+
+Zugriff mit PIOA.PER
+
+
+Ausgabe Assembler:
+-------------------
+.equ	PIOA,<base-addr>
+.equ	_PIO_PER, 0x0
+.equ	_PIO_PDR, 0x4
+
+	
