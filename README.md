@@ -21,8 +21,8 @@ cd programs/mxli3
 make
 ```
 
-Note, if you don't have Doxygen installed, the first `make` command will end in an error. You can ignore thats and continue to build `mxli3`.
-You can also remove `doc` from `lib/Makefile`
+**Note**: if you don't have Doxygen installed, the first `make` command will end in an error. You can ignore that and continue to build `mxli3`.
+You can also remove `doc` from `lib/Makefile` to avoid this error.
 
 ## How to run
 
