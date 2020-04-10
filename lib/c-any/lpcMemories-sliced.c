@@ -476,6 +476,8 @@ const LpcMember* const lpcMembers11xx[] = {
 
 	&lpcMember1115_M303_FBD48,
 
+	&lpcMember11U37_M401_FBD48,
+
 	&lpcMember11C12_M301_FBD48,
 	&lpcMember11C14_M301_FBD48,
 	&lpcMember11C22_M301_FBD48,
@@ -711,6 +713,8 @@ const LpcMember* const lpcMembersXxxx[] = {
 	&lpcMember1114_M333_FHN33_FBD48,
 
 	&lpcMember1115_M303_FBD48,
+
+	&lpcMember11U37_M401_FBD48,
 
 	&lpcMember11C12_M301_FBD48,
 	&lpcMember11C14_M301_FBD48,
@@ -1430,6 +1434,17 @@ const LpcMember lpcMember1115_M303_FBD48 = {
 	.sizeFlashK = 64,
 	.sizeRamKs = { 8, },
 	.ids = { LPC_ID_1115_M303_FBD48, },
+	.family = &lpcFamily11xx,
+	.ispFamily = &lpcIsp111x,
+};
+
+
+//SLICE
+const LpcMember lpcMember11U37_M401_FBD48 = {
+	.name = "LPC11U37 /401 FBD48",
+	.sizeFlashK = 128,
+	.sizeRamKs = { 8, },
+	.ids = { LPC_ID_11U37_M401_FBD48, },
 	.family = &lpcFamily11xx,
 	.ispFamily = &lpcIsp111x,
 };
