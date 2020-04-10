@@ -1,7 +1,6 @@
 # mxli - An open source ISP programmer for NXP LPC controllers
 
-This is a fork with added supported for some specific microcontrollers
-Original project by Marc Prager is hosted on [http://www.windscooting.com/softy/mxli.html](http://www.windscooting.com/softy/mxli.html)
+This is a fork with added supported for some specific microcontrollers. The original project by Marc Prager is hosted on [http://www.windscooting.com/softy/mxli.html](http://www.windscooting.com/softy/mxli.html)
  
 
 [man pages of v3.0](http://www.windscooting.com/softy/mxli-3.0.pdf)
