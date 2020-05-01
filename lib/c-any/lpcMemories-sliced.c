@@ -1440,17 +1440,6 @@ const LpcMember lpcMember1115_M303_FBD48 = {
 
 
 //SLICE
-const LpcMember lpcMember11U37_M401_FBD48 = {
-	.name = "LPC11U37 /401 FBD48",
-	.sizeFlashK = 128,
-	.sizeRamKs = { 8, },
-	.ids = { LPC_ID_11U37_M401_FBD48, },
-	.family = &lpcFamily11xx,
-	.ispFamily = &lpcIsp111x,
-};
-
-
-//SLICE
 const LpcMember lpcMember11C12_M301_FBD48 = {
 	.name = "LPC11C12 /301 FBD48",
 	.sizeFlashK = 16,
@@ -1488,6 +1477,56 @@ const LpcMember lpcMember11C24_M301_FBD48 = {
 	.ids = { LPC_ID_11C24_M301_FBD48, },
 	.family = &lpcFamily11xx,
 	.ispFamily = &lpcIsp11Cxx,
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// LPC11U00 family
+
+//SLICE
+const LpcFamily lpcFamily11Uxx = {
+	.banks = 1,	//.addressFlash = 0,
+	.sectorArrays = { { .sizeK=4, .n=32 }, { }, },
+	.blockSizes = { 256, 512, 1024, 4096 },
+	.idMasks = { -1, },
+	.checksumVectors = 8,
+	.checksumVector = 7,
+};
+
+//SLICE
+const LpcIspFamily lpcIsp11Uxx = {
+	.protocol = ISP_PROTOCOL_UUENCODE,
+	// For LPC11Uxx the following holds:
+	//
+	// RAM up to 0x1000 0050 is untouched an preserved at boot.
+	// ISP uses RAM from 0x1000 017C to 0x1000 025B
+	// ISP command use top 32 bytes, the stack is located top-32 and may use up to 256 bytes
+	.addressRams = { 0x10000000, 0x20004000 },
+	.ramUsage = {
+		{ 0x1000017C, 0x25B-0x17C+1 },
+		{ 0x10000000, -(256+32) },
+	},
+};
+
+// generic one
+/*
+const LpcMember lpcMember11U = {
+	.name = "LPC11U*",
+	.sizeFlashK = 8,
+	.sizeRamKs = { 4, },
+	.ids = { 0 },
+	.family = &lpcFamily11Uxx,
+	.ispFamily = &lpcIsp11Uxx,
+};
+*/
+
+//SLICE
+const LpcMember lpcMember11U37_M401_FBD48 = {
+	.name = "LPC11U37 /401 FBD48",
+	.sizeFlashK = 128,
+	.sizeRamKs = { 8, },
+	.ids = { LPC_ID_11U37_M401_FBD48, },
+	.family = &lpcFamily11Uxx,
+	.ispFamily = &lpcIsp11Uxx,
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
